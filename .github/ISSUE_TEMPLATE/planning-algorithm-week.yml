@@ -1,0 +1,17 @@
+name: 'Planning Algorithm Week'
+description: 'Algorithm week-based task planning'
+title: '[Week1] EunseoPark'
+labels: ['week', 'problems']
+body:
+  - type: textarea
+    id: tasks
+    attributes:
+      label: "✅ To-do"
+      description: "해당 주차에 풀어야 할 문제들을 작성해주세요"
+      value: |
+        - [ ] todo 1
+        - [ ] todo 2
+        - [ ] todo 3
+        - [ ] todo 4
+    validations:
+      required: true
