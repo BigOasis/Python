@@ -92,7 +92,7 @@ feat: BOJ_1018_체스판다시칠하기_체스판 로직 구현
 [230809] PGS 다트 게임 - 1문제
 ```
 
-**[예시 PR](https://github.com/BigOasis/Java/pull/1)** 참고 해주세요:)
+**[예시 PR](https://github.com/BigOasis/Python/pull/1)** 참고 해주세요:)
 
 
 
