@@ -1,20 +1,16 @@
 class Solution(object):
-    def canVisitAllRooms(self, rooms):
+    def dailyTemperatures(self, temperatures):
         """
-        :type rooms: List[List[int]]
-        :rtype: bool
+        :type temperatures: List[int]
+        :rtype: List[int]
         """
-        length = len(rooms)
-        visited = [False] * length
+        answer = [0] * len(temperatures)
+        stack = []
 
-        def dfs(v):
-            visited[v] = True
-            for room in rooms[v]:
-                if not visited[room]:
-                    dfs(room)
+        for i, temp in enumerate(temperatures):
+            while stack and temperatures[stack[-1]] < temp:
+                prev = stack.pop()
+                answer[prev] = i - prev
+            stack.append(i)
 
-        dfs(0)
-        if all(visited):
-            return True
-        else:
-            return False
+        return answer
