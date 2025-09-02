@@ -12,8 +12,6 @@ def solution(cacheSize, cities):
     for city in cities:
         if city not in caches:
             answer += 5
-            if len(caches) >= cacheSize:
-                caches.popleft()
         else:
             answer += 1
             caches.remove(city)
