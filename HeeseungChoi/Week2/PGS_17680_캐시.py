@@ -14,11 +14,11 @@ def solution(cacheSize, cities):
             cache.remove(city)  # 기존 위치 제거
             cache.append(city)  # 가장 최근에 사용된 것으로 갱신
             answer += 1
-    else:
-        if len(cache) >= cacheSize:
-            cache.popleft()     # 가장 오랜된거 제거
-        cache.append(city)      # 현재 시티로 갱신
-        answer += 5
+        else:
+            if len(cache) >= cacheSize:
+                cache.popleft()     # 가장 오랜된거 제거
+            cache.append(city)      # 현재 시티로 갱신
+            answer += 5
 
     return answer
 
