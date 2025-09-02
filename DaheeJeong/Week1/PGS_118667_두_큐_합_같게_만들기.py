@@ -10,7 +10,6 @@ def solution(queue1, queue2):
     q2 = deque(queue2)
     s1 = sum(q1)
     s2 = sum(q2)
-    answer = 0
 
     for _ in range(len(queue1) * 4):
         if s1 == s2:
