@@ -11,7 +11,7 @@ class Solution(object):
             if row < 0 or row >= m or col < 0 or col >= n or grid[row][col] != "1":
                 return
 
-            grid[row][col] = 0
+            grid[row][col] = "0"
 
             dfs(row + 1, col)
             dfs(row, col + 1)
