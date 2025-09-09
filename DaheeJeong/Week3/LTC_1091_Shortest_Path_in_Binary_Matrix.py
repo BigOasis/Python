@@ -1,6 +1,4 @@
 from collections import deque
-import sys
-
 
 class Solution(object):
     def shortestPathBinaryMatrix(self, grid):
@@ -8,7 +6,7 @@ class Solution(object):
         :type grid: List[List[int]]
         :rtype: int
         """
-        if grid[0][0] == 1:
+        if grid[0][0] == 1 or grid[-1][-1] == 1:
             return -1
 
         n = len(grid)
