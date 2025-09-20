@@ -1,6 +1,6 @@
 """
 LeetCode Longest Consecutive Sequence
-1136~
+20분
 """
 from typing import List
 
