@@ -32,7 +32,7 @@ def solution(play_time, adv_time, logs):
     for i in range(1, play+1):
         times[i] += times[i-1]
 
-    # 4. 광고를 삽입시각 찾기 => 슬라이딩윈도우 써면됨
+    # 4. 광고를 삽입하는 최적의시각 찾기 => 슬라이딩윈도우 써면됨
     max_view = times[adv-1]
     max_start = 0
     for start in range(1, play-adv+1):
