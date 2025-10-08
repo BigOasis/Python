@@ -51,3 +51,13 @@ def solution(board, r, c):
     # 흠,, 이제 이걸 백트래킹해야하나
 
     return answer
+
+def bt(nums):
+    if not nums:
+        return
+
+    for num in nums:
+        # p = [(x, y), (x, y)]
+        # bt(새보드, 새위치, 나머지들, cnt)
+        return
+
