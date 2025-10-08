@@ -12,32 +12,24 @@ from bisect import bisect_left
 
 def solution(info, query):
     db = {}
-
-    # info 전처리: 각 지원자의 모든 조건 조합을 key로 저장
-    for i in info:
-        data = i.split()
-        cond, score = data[:-1], int(data[-1])
-        for n in range(5):  # '-'로 대체할 조건 개수 (0~4)
+    # info 전처리
+    for s in info:
+        w = s.split()
+        cond, score = w[:-1], int(w[-1])
+        # '-' 포함 가능한 모든 조합
+        for n in range(5):
             for c in combinations(range(4), n):
-                tmp = cond[:]
-                for idx in c: tmp[idx] = '-'
-                key = ''.join(tmp)
-                db.setdefault(key, []).append(score)
+                t = cond[:]
+                for i in c: t[i] = '-'
+                db.setdefault(''.join(t), []).append(score)
+    # 점수 정렬
+    for v in db.values(): v.sort()
 
-    # 2️점수 리스트 정렬 (이진 탐색용)
-    for v in db.values():
-        v.sort()
-
-    ans = []
-
+    res = []
     for q in query:
-        q = q.replace(' and ', '').split()
+        q = q.replace(' and ', ' ').split()
         key, target = ''.join(q[:-1]), int(q[-1])
-        if key in db:
-            s = db[key]
-            # target 이상 점수를 가진 사람 수 계산
-            i = bisect_left(s, target)
-            ans.append(len(s) - i)
-        else:
-            ans.append(0)
-    return ans
+        s = db.get(key, [])
+        # 기준 점수 이상인 사람 수 (이진 탐색)
+        res.append(len(s) - bisect_left(s, target))
+    return res
