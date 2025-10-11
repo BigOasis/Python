@@ -3,12 +3,13 @@ import math
 
 def convert(num, base):
     temp = "0123456789ABCDEF"
-    q, r = divmod(num, base)
+    res = []
 
-    if q == 0:
-        return temp[r]
-    else:
-        return convert(q, base) + temp[r]
+    while num > 0:
+        num, r = divmod(num, base)
+        res.append(temp[r])
+
+    return "".join(reversed(res or ["0"]))
 
 
 def is_prime(x):
