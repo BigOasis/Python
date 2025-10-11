@@ -14,8 +14,7 @@ def solution(fees, records):
             car_dict[car] = time
 
         elif status == 'OUT':
-            car_time[car] += time - car_dict[car]
-            del car_dict[car]
+            car_time[car] += time - car_dict.pop(car)
 
     end_time = 23 * 60 + 59
     for car, t in car_dict.items():
