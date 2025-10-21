@@ -16,5 +16,4 @@ def solution(users, emoticons):
             else:
                 result[1] += tmp
         answer.append(result)
-    answer.sort(key=lambda x: (-x[0], -x[1]))
-    return answer[0]
+    return max(answer)
