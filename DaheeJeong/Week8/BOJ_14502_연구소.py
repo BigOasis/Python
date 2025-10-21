@@ -20,8 +20,8 @@ for i in range(n):
         elif lab[i][j] == 2:
             virus.append((i, j))
 
-def spread_virus(temp):
-    q = deque(virus)
+def spread_virus(temp, virus_list):
+    q = deque(virus_list)
     while q:
         x, y = q.popleft()
         for i in range(4):
@@ -44,7 +44,7 @@ for walls in combinations(empty, 3):
     for x, y in walls:
         temp[x][y] = 1
 
-    spread_virus(temp)
+    spread_virus(temp, virus)
     max_safe = max(max_safe, get_safe_area(temp))
 
 print(max_safe)
