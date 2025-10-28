@@ -3,7 +3,7 @@ from collections import deque
 
 def get_next(pos, board):
     next_pos = []
-    pos = list(pos)
+    pos = sorted(list(pos))
     x1, y1, x2, y2 = pos[0][0], pos[0][1], pos[1][0], pos[1][1]
     moves = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
