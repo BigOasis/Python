@@ -1,25 +1,23 @@
 def solution(gems):
     N = len(gems)
-    answer = [0, N-1]
-    kind = len(set(gems))  # 보석종류
-    dic = {gems[0]:1,}  # 종류 체크
-    start,end = 0,0 
-    while start<N and end<N:
-        if len(dic) < kind:  # 종류가 다 안모였으면 end 증가 & dic 개수 ++
-            end += 1
-            if end == N:
-                break
-            dic[gems[end]] = dic.get(gems[end], 0) + 1
+    kind = len(set(gems))
+    dic = {}
+    answer = [0, N - 1]
+    start = 0
 
-        else:  # 종류 같으면 ans 비교 후 답 갱신하고, start 증가 & dic 개수 --
-            if (end-start+1) < (answer[1]-answer[0]+1):
-                answer = [start,end]
-            if dic[gems[start]] == 1:
+    for end in range(N):
+        # 보석 추가
+        dic[gems[end]] = dic.get(gems[end], 0) + 1
+
+        while len(dic) == kind:
+            if (end - start) < (answer[1] - answer[0]):
+                answer = [start, end]
+
+            # 왼쪽 보석 제거하며 윈도우 축소
+            dic[gems[start]] -= 1
+            if dic[gems[start]] == 0:
                 del dic[gems[start]]
-            else:
-                dic[gems[start]] -= 1
             start += 1
 
-    answer[0] += 1
-    answer[1] += 1
-    return answer
+    # 1-based 인덱스로 변환
+    return [answer[0] + 1, answer[1] + 1]
